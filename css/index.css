@@ -1,0 +1,95 @@
+:root {
+  --bg-body: #ececec;
+  --bg-center: #fafafa;
+  --bg-botones: #d3d3d3;
+  --bg-botones-hover: #ecebeb;
+  --bg-menu: #bbb9b9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url(../img/bg_grande.jpg) fixed;
+  transition: all 3s;
+}
+
+.center {
+  margin: 50px auto;
+  border-radius: 10px;
+  background: var(--bg-center);
+  width: 900px;
+  height: 550px;
+  display: flex;
+  flex-flow: row wrap;
+  box-shadow: 4px 10px 10px #1a1919;
+}
+
+.menu {
+  z-index: 2;
+  width: 40%;
+  height: 100%;
+  background: var(--bg-menu);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding: 30px;
+  border-top-left-radius: 10px;
+  border-end-start-radius: 10px;
+}
+.menu__foto {
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 1px 4px 4px black;
+  display: flex;
+}
+.menu__btn {
+  background-color: rgb(241, 15, 15);
+  width: 40%;
+  height: 40px;
+  border-radius: 15px;
+  border: none;
+  background: var(--bg-botones);
+  box-shadow: 0 3px 5px #242424;
+}
+.menu__btn:hover {
+  position: relative;
+  top: -5px;
+  background: var(--bg-botones-hover);
+}
+.menu__contenedor {
+  height: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: var(--bg-menu);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-140%, -50%);
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.formulario {
+  width: 60%;
+  background: #2c2736;
+  border-top-right-radius: 10px;
+  border-end-end-radius: 10px;
+}
+
+.close {
+  display: none;
+}/*# sourceMappingURL=index.css.map */
