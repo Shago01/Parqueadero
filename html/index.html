@@ -21,23 +21,152 @@
                     </div>
                 </div>
                 <div class="menu__contenedor">
-                    <button class="menu__btn">Ingresar</button>
-                    <button class="menu__btn">Buscar</button>
-                    <button class="menu__btn">P 1</button>
-                    <button class="menu__btn">P 2</button>
-                    <button class="menu__btn">P 3</button>
-                    <button class="menu__btn">P 4</button>
-                    <button class="menu__btn">P 5</button>
+                    <button class="btn btn--menu" id="btn_in">Ingresar</button>
+                    <button class="btn btn--menu" id="btn_bu">Buscar</button>
+                    <button class="btn btn--menu" id="btn_p1">P 1</button>
+                    <button class="btn btn--menu" id="btn_p2">P 2</button>
+                    <button class="btn btn--menu" id="btn_p3">P 3</button>
+                    <button class="btn btn--menu" id="btn_p4">P 4</button>
+                    <button class="btn btn--menu" id="btn_p5">P 5</button>
                 </div>
             </div>
 
             <div class="circle"></div>
 
             <!-- * formulario -->
-            <div class="formulario"></div>
+            <div class="formulario close" id="formulario">
+                <h2 class="formulario__titulo">Entrada de Vehiculo</h2>
+                <form class="formulario__contenedor">
+                    <div class="formulario__entrada">
+                        <lable class="formulario__label"> Modelo</lable>
+                        <input
+                            type="text"
+                            name="modelo"
+                            id="model"
+                            class="formulario__input"
+                        />
+                    </div>
+                    <div class="formulario__entrada">
+                        <lable class="formulario__label">Matricula</lable>
+                        <input
+                            type="text"
+                            name="matricula"
+                            id="matricula"
+                            class="formulario__input"
+                        />
+                    </div>
+                    <div class="formulario__entrada">
+                        <label class="formulario__label">Elige el piso</label>
+                        <select
+                            class="formulario__select"
+                            name="TipoCarro"
+                            id="tipo"
+                        >
+                            <option value="" selected>seleccionar</option>
+                            <option value="1">Carro</option>
+                            <option value="2">Camioneta</option>
+                            <option value="3">bus</option>
+                        </select>
+                    </div>
+                    <div class="formulario__entrada">
+                        <label class="formulario__label"
+                            >Elige el tipo de carro:</label
+                        >
+                        <select
+                            class="formulario__select"
+                            name="TipoCarro"
+                            id="piso"
+                        >
+                            <option value="" selected>seleccionar</option>
+                            <option value="1">Piso 1</option>
+                            <option value="2">Piso 2</option>
+                            <option value="3">piso 3</option>
+                            <option value="3">piso 4</option>
+                            <option value="3">piso 5</option>
+                        </select>
+                    </div>
+                    <div class="formulario__entrada">
+                        <lable class="formulario__label">Puesto</lable>
+                        <input
+                            type="text"
+                            name="puesto"
+                            id="puesto"
+                            class="formulario__input"
+                        />
+                    </div>
+                </form>
+
+                <button class="btn btn--form" id="btnAg">Ingresar</button>
+            </div>
+
+            <!-- * buscar -->
+            <div class="buscar close" id="buscar">
+                <h2 class="formulario__titulo">Buscar Vehiculo</h2>
+                <form class="formulario__contenedor">
+                    <div class="formulario__entrada">
+                        <lable class="formulario__label">Matricula</lable>
+                        <input
+                            type="text"
+                            name="matricula"
+                            id="matricula"
+                            class="formulario__input"
+                        />
+                    </div>
+
+                    <div class="formulario__entrada">
+                        <label class="formulario__label"
+                            >Elige el tipo de carro:</label
+                        >
+                        <select
+                            class="formulario__select"
+                            name="TipoCarro"
+                            id="piso"
+                        >
+                            <option value="" selected>seleccionar</option>
+                            <option value="1">Piso 1</option>
+                            <option value="2">Piso 2</option>
+                            <option value="3">piso 3</option>
+                            <option value="3">piso 4</option>
+                            <option value="3">piso 5</option>
+                        </select>
+                    </div>
+                    <div class="formulario__entrada">
+                        <lable class="formulario__label">Puesto</lable>
+                        <input
+                            disabled
+                            type="text"
+                            name="puesto"
+                            id="puestoB"
+                            class="formulario__input"
+                        />
+                    </div>
+                    <div class="formulario__entrada">
+                        <lable class="formulario__label">modelo</lable>
+                        <input
+                            disabled
+                            type="text"
+                            name="puesto"
+                            id="modeloB"
+                            class="formulario__input"
+                        />
+                    </div>
+                </form>
+                <div class="formulario__botones">
+                    <button class="btn btn--form" id="btnbusC">Buscar</button>
+                    <button class="btn btn--form" id="btnsacC">Sacar</button>
+                </div>
+            </div>
 
             <!-- * Tablas -->
-            <div class="tabla"></div>
+            <div class="tabla close">
+                <div class="tabla__piso1" id="tabla_1"></div>
+                <div class="tabla__piso2" id="tabla_2"></div>
+                <div class="tabla__piso3" id="tabla_3"></div>
+                <div class="tabla__piso4" id="tabla_4"></div>
+                <div class="tabla__piso5" id="tabla_5"></div>
+            </div>
         </div>
     </body>
+
+    <script src="../js/index.js"></script>
 </html>

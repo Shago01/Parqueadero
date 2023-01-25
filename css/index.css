@@ -2,12 +2,16 @@
   --bg-body: #ececec;
   --bg-center: #fafafa;
   --bg-botones: #d3d3d3;
-  --bg-botones-hover: #ecebeb;
-  --bg-menu: #bbb9b9;
+  --bg-botones-hover: hwb(0 92% 8%);
+  --bg-menu: #bad6fd;
+  --bg-btn-menu: #5fa0fc;
+  --bg-contenedor: #ffffff;
+  --bg-btn-contenedor: #301855;
 }
 
 * {
   box-sizing: border-box;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -49,26 +53,33 @@ body {
   box-shadow: 1px 4px 4px black;
   display: flex;
 }
-.menu__btn {
-  background-color: rgb(241, 15, 15);
-  width: 40%;
-  height: 40px;
-  border-radius: 15px;
-  border: none;
-  background: var(--bg-botones);
-  box-shadow: 0 3px 5px #242424;
-}
-.menu__btn:hover {
-  position: relative;
-  top: -5px;
-  background: var(--bg-botones-hover);
-}
 .menu__contenedor {
   height: 50%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
+}
+
+.btn {
+  width: 35%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: black;
+}
+.btn:hover {
+  position: relative;
+  top: -5px;
+  background: var(--bg-botones-hover);
+}
+.btn--menu {
+  background: var(--bg-btn-menu);
+}
+.btn--form {
+  background: var(--bg-btn-menu);
 }
 
 .circle {
@@ -83,11 +94,63 @@ body {
   border-radius: 50%;
 }
 
-.formulario {
+.formulario,
+.buscar,
+.tabla {
   width: 60%;
-  background: #2c2736;
+  height: 100%;
+  background: var(--bg-contenedor);
   border-top-right-radius: 10px;
   border-end-end-radius: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.formulario {
+  justify-content: space-evenly;
+}
+.formulario__titulo {
+  text-align: center;
+  color: var(--bg-btn-menu);
+  font-size: 2em;
+  padding: 20px 0;
+}
+.formulario__entrada {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.formulario__label, .formulario__input {
+  width: 100%;
+  display: inline-block;
+}
+.formulario__label {
+  color: var(--bg-btn-menu);
+  font-weight: bold;
+}
+.formulario__input, .formulario__select {
+  height: 30px;
+}
+.formulario__contenedor {
+  height: 60%;
+  width: 70%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+.formulario__botones {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+.buscar {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
 }
 
 .close {
