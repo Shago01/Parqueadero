@@ -210,9 +210,11 @@ function generarPiso() {
 }
 
 function encaontrarV() {
-    return parking.registro.find(
-        (element) => element._Matricula == matriculaB.value
-    );
+    return parking.registro.find((element) => {
+        if (element._Matricula == matriculaB.value) {
+            return element;
+        }
+    });
 }
 
 // funciones con el formualario
