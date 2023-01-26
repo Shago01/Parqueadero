@@ -27,7 +27,7 @@
                 <div class="menu__contenedor">
                     <button class="btn btn--menu" id="btn_ge">
                         <i class="fa-solid fa-car-side"></i>
-                        <span class="icon"> General </span>
+                        <span class="icon"> Registro </span>
                     </button>
                     <button class="btn btn--menu" id="btn_in">
                         <i class="fa-sharp fa-solid fa-plus"></i> Ingresar
@@ -118,41 +118,20 @@
                         <input
                             type="text"
                             name="matricula"
-                            id="matricula"
+                            id="matriculaB"
                             class="formulario__input"
                         />
                     </div>
 
                     <div class="formulario__entrada">
-                        <label class="formulario__label">Elige el piso:</label>
-                        <select
-                            class="formulario__select"
-                            name="TipoCarro"
-                            id="piso"
-                        >
-                            <option value="0" selected>seleccionar</option>
-                            <option value="1">Piso 1</option>
-                            <option value="2">Piso 2</option>
-                            <option value="3">piso 3</option>
-                            <option value="3">piso 4</option>
-                            <option value="3">piso 5</option>
-                        </select>
-                    </div>
-                    <div class="formulario__entrada">
-                        <label class="formulario__label"
-                            >Elige el Vehiculo</label
-                        >
-                        <select
-                            class="formulario__select"
-                            name="TipoCarro"
-                            id="tipo"
+                        <label class="formulario__label">Vehiculo</label>
+                        <input
+                            type="text"
+                            name="tipoB"
+                            id="tipoB"
                             disabled
-                        >
-                            <option value="0" selected>seleccionar</option>
-                            <option value="1">Carro</option>
-                            <option value="2">Camioneta</option>
-                            <option value="3">bus</option>
-                        </select>
+                            class="formulario__input"
+                        />
                     </div>
                     <div class="formulario__entrada">
                         <lable class="formulario__label">Puesto</lable>
@@ -221,4 +200,5 @@
     </body>
 
     <script src="../js/index.js"></script>
+    <script src="../js/jspdf.min.js"></script>
 </html>

@@ -5,6 +5,12 @@ const inTipoCar = document.getElementById('tipo');
 const inPiso = document.getElementById('piso');
 const inPuesto = document.getElementById('puesto');
 
+// Form Buscar
+const matriculaB = document.getElementById('matriculaB');
+const modeloB = document.getElementById('modeloB');
+const tipoB = document.getElementById('tipoB');
+const puestoB = document.getElementById('puestoB');
+
 //TABLA GENERAL
 const tablaGe = document.getElementById('tabla_general');
 const cuerpTGe = document.getElementById('tabla_boody_ge');
@@ -18,6 +24,8 @@ const btnBu = document.getElementById('btn_bu');
 const btnAg = document.getElementById('btnAg');
 const btnGe = document.getElementById('btn_ge');
 const btnSa = document.getElementById('btn_sa');
+const btnbusC = document.getElementById('btnbusC');
+const btnsacC = document.getElementById('btnsacC');
 
 //Dom contenedores:
 const form = document.getElementById('formulario');
@@ -26,13 +34,7 @@ const salir = document.getElementById('tabla_salir');
 //objetos
 
 let parking = {
-    piso1: [],
-    piso2: [],
-    piso3: [],
-    piso4: [],
-    piso5: [],
     registro: [],
-    registroP: [],
 };
 
 //Clases padres
@@ -83,7 +85,6 @@ class Bus extends Vehiculos {
         super(Matricula, Modelo);
         this._Puesto = piso + puesto;
         this._Precio = 1600;
-        this._TipoI = '3';
         this._Tipo = 'BUS';
     }
 }
@@ -92,7 +93,6 @@ class Camioneta extends Vehiculos {
         super(Matricula, Modelo);
         this._Puesto = piso + puesto;
         this._Precio = 1200;
-        this._TipoI = '2';
         this._Tipo = 'CAMIONETA';
     }
 }
@@ -101,7 +101,6 @@ class Carro extends Vehiculos {
         super(Matricula, Modelo);
         this._Puesto = piso + puesto;
         this._Precio = 800;
-        this._TipoI = '1';
         this._Tipo = 'CARRO';
     }
 }
@@ -122,24 +121,24 @@ function comprobarVacios() {
     return true;
 }
 
-function puestoVacio(arr, puesto) {
-    if (arr.includes(puesto)) {
-        return true;
-    }
-    return false;
-}
-
-function agregarPuesto(puesto) {
-    parking.registroP.push(puesto);
+function puestoVacio(puesto) {
+    return parking.registro.some((element) => {
+        if (element != undefined) {
+            if (element._Puesto == puesto) {
+                return true;
+            }
+        }
+    });
 }
 
 function matriculaExistente(matricula) {
-    for (let i = 0; i < parking.registro.length; i++) {
-        if (parking.registro[i]._Matricula == matricula) {
-            return true;
+    return parking.registro.some((element) => {
+        if (element != undefined) {
+            if (element._Matricula == matricula) {
+                return true;
+            }
         }
-    }
-    return false;
+    });
 }
 
 function comprobarPisoCarro() {
@@ -178,39 +177,21 @@ function comprobarPuesto() {
     return true;
 }
 
-function pisoSelect() {
-    switch (inPiso.value) {
-        case '1':
-            return parking.piso1;
-        case '2':
-            return parking.piso2;
-        case '3':
-            return parking.piso3;
-        case '4':
-            return parking.piso4;
-        case '5':
-            return parking.piso5;
-    }
-}
-
 // funcioenes con el objeto vehiculo
-function agregarBus(modelo, matricula, puesto, piso, pisoA) {
-    console.log('llegue');
+function agregarBus(modelo, matricula, puesto, piso) {
+    3;
     let bus = new Bus(matricula, modelo, puesto, piso);
     parking.registro.push(bus);
-    pisoA.push(bus);
 }
 
-function agregarCarro(modelo, matricula, puesto, piso, pisoA) {
+function agregarCarro(modelo, matricula, puesto, piso) {
     let car = new Carro(matricula, modelo, puesto, piso);
     parking.registro.push(car);
-    pisoA.push(car);
 }
 
-function agregarCamioneta(modelo, matricula, puesto, piso, pisoA) {
+function agregarCamioneta(modelo, matricula, puesto, piso) {
     let cam = new Camioneta(matricula, modelo, puesto, piso);
     parking.registro.push(cam);
-    pisoA.push(cam);
 }
 
 function generarPiso() {
@@ -226,6 +207,12 @@ function generarPiso() {
         case '5':
             return 'E';
     }
+}
+
+function encaontrarV() {
+    return parking.registro.find(
+        (element) => element._Matricula == matriculaB.value
+    );
 }
 
 // funciones con el formualario
@@ -270,6 +257,18 @@ function generarTablage() {
     ultimoRegistro += 1;
 }
 
+function buscarVeh() {
+    let car = encaontrarV();
+    if (car == undefined) {
+        alert('el vehiculo no se encuentra en el parqueadero');
+        return null;
+    } else {
+        tipoB.value = car._Tipo;
+        puestoB.value = car._Puesto;
+        modeloB.value = car._Modelo;
+    }
+}
+
 function abrirForm() {
     tablaGe.classList.add('close');
     buscar.classList.add('close');
@@ -291,18 +290,56 @@ function abrirBuscar() {
     buscar.classList.remove('close');
 }
 
-function abrirTabla() {
-    tablaGe.classList.add('close');
-    buscar.classList.add('close');
-    salir.classList.add('close');
-    form.classList.remove('close');
-}
-
 function abrirTablage() {
     buscar.classList.add('close');
     salir.classList.add('close');
     form.classList.add('close');
     tablaGe.classList.remove('close');
+}
+
+function sacarVehiculo() {
+    let pos = parking.registro.findIndex(
+        (element) => element._Matricula == matriculaB.value
+    );
+
+    let carr = parking.registro[pos];
+    parking.registro[pos] = undefined;
+
+    generaPdf(carr);
+}
+
+function horasUtilizadas(salida, veh) {
+    let horasUtilizadas = Math.abs(salida - veh._HoraEntrada);
+    if (horasUtilizadas == 0) {
+        return 1;
+    }
+    return horasUtilizadas;
+}
+
+function generaPdf(carr) {
+    let doc = new jsPDF('landscape');
+    let veh = carr;
+    let horaSalida = new Date().getMinutes();
+    let horasUsadas = horasUtilizadas(horaSalida, veh);
+    let precioH = horasUsadas * veh._Precio;
+
+    doc.setFontSize(30);
+    doc.setFontStyle('blod');
+    doc.text(130, 20, `Parking Parck`);
+
+    doc.setFontSize(17);
+    doc.setFontStyle('normal');
+    doc.text(20, 40, `MATRICULA: ${veh._Matricula} `);
+    doc.text(130, 40, `MODELO: ${veh._Modelo}`);
+    doc.text(220, 40, `TIPO: ${veh._Tipo}`);
+    doc.text(20, 60, `PUESTO: ${veh._Puesto} `);
+    doc.text(130, 60, `HORAS DE ENTRADA: ${veh._HoraEntrada} `);
+    doc.text(220, 60, `HORA DE SALIDA:  ${horaSalida} `);
+    doc.text(20, 80, `HORAS USADAS: ${horasUsadas} `);
+    doc.text(220, 80, `PRECIO: ${precioH} `);
+
+    doc.save('test.pdf');
+    doc.pdfexport();
 }
 
 // fuciones de botoes
@@ -322,9 +359,7 @@ function ag_vehiculo() {
     if (matriculaExistente(inMatricula.value)) {
         alert('la matricula ya existe');
         return null;
-    } else if (
-        puestoVacio(parking.registroP, String(generarPiso() + inPuesto.value))
-    ) {
+    } else if (puestoVacio(String(generarPiso() + inPuesto.value))) {
         alert('ese puesto ya esta ocuapdo');
         return null;
     }
@@ -335,32 +370,30 @@ function ag_vehiculo() {
                 inModelo.value,
                 inMatricula.value,
                 inPuesto.value,
-                generarPiso(),
-                pisoSelect()
+                generarPiso()
             );
-            agregarPuesto(String(generarPiso() + inPuesto.value));
+
             break;
         case 2:
             agregarCamioneta(
                 inModelo.value,
                 inMatricula.value,
                 inPuesto.value,
-                generarPiso(),
-                pisoSelect()
+                generarPiso()
             );
-            agregarPuesto(String(generarPiso() + inPuesto.value));
+
             break;
         case 3:
             agregarBus(
                 inModelo.value,
                 inMatricula.value,
                 inPuesto.value,
-                generarPiso(),
-                pisoSelect()
+                generarPiso()
             );
-            agregarPuesto(String(generarPiso() + inPiso.value));
+
             break;
     }
+    alert('Registro Exitoso');
 }
 
 function btn_ag() {
@@ -381,3 +414,5 @@ btnBu.addEventListener('click', abrirBuscar);
 btnAg.addEventListener('click', btn_ag);
 btnGe.addEventListener('click', abrirTablage);
 btnSa.addEventListener('click', btn_sa);
+btnbusC.addEventListener('click', buscarVeh);
+btnsacC.addEventListener('click', sacarVehiculo);
