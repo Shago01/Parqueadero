@@ -21,17 +21,11 @@
                     </div>
                 </div>
                 <div class="menu__contenedor">
+                    <button class="btn btn--menu" id="btn_ge">General</button>
                     <button class="btn btn--menu" id="btn_in">Ingresar</button>
                     <button class="btn btn--menu" id="btn_bu">Buscar</button>
-                    <button class="btn btn--menu" id="btn_p1">P 1</button>
-                    <button class="btn btn--menu" id="btn_p2">P 2</button>
-                    <button class="btn btn--menu" id="btn_p3">P 3</button>
-                    <button class="btn btn--menu" id="btn_p4">P 4</button>
-                    <button class="btn btn--menu" id="btn_p5">P 5</button>
                 </div>
             </div>
-
-            <div class="circle"></div>
 
             <!-- * formulario -->
             <div class="formulario close" id="formulario">
@@ -56,33 +50,33 @@
                         />
                     </div>
                     <div class="formulario__entrada">
-                        <label class="formulario__label">Elige el piso</label>
+                        <label class="formulario__label"
+                            >Elige el Vehiculo</label
+                        >
                         <select
                             class="formulario__select"
                             name="TipoCarro"
                             id="tipo"
                         >
-                            <option value="" selected>seleccionar</option>
+                            <option value="0" selected>seleccionar</option>
                             <option value="1">Carro</option>
                             <option value="2">Camioneta</option>
                             <option value="3">bus</option>
                         </select>
                     </div>
                     <div class="formulario__entrada">
-                        <label class="formulario__label"
-                            >Elige el tipo de carro:</label
-                        >
+                        <label class="formulario__label">Elige el Piso</label>
                         <select
                             class="formulario__select"
                             name="TipoCarro"
                             id="piso"
                         >
-                            <option value="" selected>seleccionar</option>
+                            <option value="0" selected>seleccionar</option>
                             <option value="1">Piso 1</option>
                             <option value="2">Piso 2</option>
                             <option value="3">piso 3</option>
-                            <option value="3">piso 4</option>
-                            <option value="3">piso 5</option>
+                            <option value="4">piso 4</option>
+                            <option value="5">piso 5</option>
                         </select>
                     </div>
                     <div class="formulario__entrada">
@@ -114,20 +108,34 @@
                     </div>
 
                     <div class="formulario__entrada">
-                        <label class="formulario__label"
-                            >Elige el tipo de carro:</label
-                        >
+                        <label class="formulario__label">Elige el piso:</label>
                         <select
                             class="formulario__select"
                             name="TipoCarro"
                             id="piso"
                         >
-                            <option value="" selected>seleccionar</option>
+                            <option value="0" selected>seleccionar</option>
                             <option value="1">Piso 1</option>
                             <option value="2">Piso 2</option>
                             <option value="3">piso 3</option>
                             <option value="3">piso 4</option>
                             <option value="3">piso 5</option>
+                        </select>
+                    </div>
+                    <div class="formulario__entrada">
+                        <label class="formulario__label"
+                            >Elige el Vehiculo</label
+                        >
+                        <select
+                            class="formulario__select"
+                            name="TipoCarro"
+                            id="tipo"
+                            disabled
+                        >
+                            <option value="0" selected>seleccionar</option>
+                            <option value="1">Carro</option>
+                            <option value="2">Camioneta</option>
+                            <option value="3">bus</option>
                         </select>
                     </div>
                     <div class="formulario__entrada">
@@ -158,12 +166,22 @@
             </div>
 
             <!-- * Tablas -->
-            <div class="tabla close">
-                <div class="tabla__piso1" id="tabla_1"></div>
-                <div class="tabla__piso2" id="tabla_2"></div>
-                <div class="tabla__piso3" id="tabla_3"></div>
-                <div class="tabla__piso4" id="tabla_4"></div>
-                <div class="tabla__piso5" id="tabla_5"></div>
+            <div class="formulario close" id="tabla_general">
+                <h2 class="formulario__titulo">Tabla General</h2>
+                <div class="tabla">
+                    <table class="tabla__contenedor">
+                        <thead class="tabla__head">
+                            <tr class="tabla__fila">
+                                <td class="tabla__celda">Matricula</td>
+                                <td class="tabla__celda">Modelo</td>
+                                <td class="tabla__celda">Tipo de Vehiculo</td>
+                                <td class="tabla__celda">puesto</td>
+                                <td class="tabla__celda">hora entrada</td>
+                            </tr>
+                        </thead>
+                        <tbody class="tabla__boody" id="tabla_boody_ge"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </body>

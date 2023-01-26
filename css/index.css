@@ -7,6 +7,7 @@
   --bg-btn-menu: #5fa0fc;
   --bg-contenedor: #ffffff;
   --bg-btn-contenedor: #301855;
+  --bg-input: #e1edff;
 }
 
 * {
@@ -46,8 +47,8 @@ body {
 }
 .menu__foto {
   overflow: hidden;
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: 180px;
   margin: 0 auto;
   border-radius: 50%;
   box-shadow: 1px 4px 4px black;
@@ -56,14 +57,14 @@ body {
 .menu__contenedor {
   height: 50%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: space-around;
   align-items: center;
 }
 
 .btn {
   width: 35%;
-  height: 40px;
+  height: 20px;
   border-radius: 5px;
   border: none;
   font-size: 1.1em;
@@ -75,30 +76,24 @@ body {
   top: -5px;
   background: var(--bg-botones-hover);
 }
-.btn--menu {
+.btn:focus {
   background: var(--bg-btn-menu);
+}
+.btn--menu {
+  background: var(--bg-menu);
+  height: 30px;
+  width: 60%;
 }
 .btn--form {
+  height: 40px;
   background: var(--bg-btn-menu);
-}
-
-.circle {
-  width: 100px;
-  height: 100px;
-  background: var(--bg-menu);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-140%, -50%);
-  z-index: 1;
-  border-radius: 50%;
 }
 
 .formulario,
-.buscar,
-.tabla {
+.buscar {
   width: 60%;
   height: 100%;
+  padding: 20px;
   background: var(--bg-contenedor);
   border-top-right-radius: 10px;
   border-end-end-radius: 10px;
@@ -131,7 +126,11 @@ body {
   font-weight: bold;
 }
 .formulario__input, .formulario__select {
+  background-color: var(--bg-input);
   height: 30px;
+  border: none;
+  padding: 0 10px 0;
+  text-align: start;
 }
 .formulario__contenedor {
   height: 60%;
@@ -155,4 +154,43 @@ body {
 
 .close {
   display: none;
+}
+
+.tabla {
+  overflow: scroll;
+  width: 500px;
+  padding: 0;
+  height: 400px;
+}
+.tabla__contenedor {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+.tabla__head {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  text-align: center;
+  font-weight: 300;
+  background: var(--bg-menu);
+}
+.tabla__celda {
+  padding: 10px;
+  width: 100%;
+}
+.tabla__boody tr:hover {
+  background-color: var(--bg-input);
+}
+.tabla__boody td {
+  text-align: center;
+  font-size: 0.8em;
+  height: 30px;
+}
+.tabla__fila {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
 }/*# sourceMappingURL=index.css.map */
