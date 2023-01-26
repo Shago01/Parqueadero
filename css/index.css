@@ -179,8 +179,6 @@ body {
 }
 .tabla__contenedor {
   width: 100%;
-  height: 300px;
-  overflow: hidden;
 }
 .tabla__head {
   width: 100%;
@@ -206,6 +204,4 @@ body {
 .tabla__fila {
   width: 100%;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
 }/*# sourceMappingURL=index.css.map */

@@ -211,8 +211,10 @@ function generarPiso() {
 
 function encaontrarV() {
     return parking.registro.find((element) => {
-        if (element._Matricula == matriculaB.value) {
-            return element;
+        if (element != undefined) {
+            if (element._Matricula == matriculaB.value) {
+                return element;
+            }
         }
     });
 }
