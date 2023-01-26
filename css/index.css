@@ -146,6 +146,21 @@ body {
   justify-content: space-evenly;
 }
 
+.nombre {
+  display: block;
+  color: var(--bg-btn-menu);
+  font-size: 1.5em;
+  margin: 30px;
+}
+
+.parrafo {
+  text-align: center;
+  width: 70%;
+}
+.parrafo img {
+  margin: 30px;
+}
+
 .buscar {
   display: flex;
   flex-flow: column nowrap;

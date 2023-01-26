@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            src="https://kit.fontawesome.com/95c2340d29.js"
+            crossorigin="anonymous"
+        ></script>
         <link rel="stylesheet" href="../css/index.css" />
 
         <title>Parqueadero</title>
@@ -21,9 +25,21 @@
                     </div>
                 </div>
                 <div class="menu__contenedor">
-                    <button class="btn btn--menu" id="btn_ge">General</button>
-                    <button class="btn btn--menu" id="btn_in">Ingresar</button>
-                    <button class="btn btn--menu" id="btn_bu">Buscar</button>
+                    <button class="btn btn--menu" id="btn_ge">
+                        <i class="fa-solid fa-car-side"></i>
+                        <span class="icon"> General </span>
+                    </button>
+                    <button class="btn btn--menu" id="btn_in">
+                        <i class="fa-sharp fa-solid fa-plus"></i> Ingresar
+                    </button>
+                    <button class="btn btn--menu" id="btn_bu">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Buscar</span>
+                    </button>
+                    <button class="btn btn--menu" id="btn_sa">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Salir
+                    </button>
                 </div>
             </div>
 
@@ -182,6 +198,24 @@
                         <tbody class="tabla__boody" id="tabla_boody_ge"></tbody>
                     </table>
                 </div>
+            </div>
+
+            <!-- * salir -->
+            <div class="formulario" id="tabla_salir">
+                <h2 class="formulario__titulo">Inico de Portal</h2>
+                <p class="parrafo">
+                    <span class="nombre"> Parking Parck</span>
+                    bienvenido a tu portal de gestión de parqueadero en el lado
+                    derecho encontraras una serie de botones con los cuales
+                    podras hacer diferentes funciones, te invitamos a
+                    utilizarlas <br />
+                    <img
+                        src="../img/car-angled-front-left-svgrepo-com.svg"
+                        width="200px"
+                        height="200px"
+                        alt=""
+                    />
+                </p>
             </div>
         </div>
     </body>

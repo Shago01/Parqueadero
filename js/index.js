@@ -4,6 +4,8 @@ const inMatricula = document.getElementById('matricula');
 const inTipoCar = document.getElementById('tipo');
 const inPiso = document.getElementById('piso');
 const inPuesto = document.getElementById('puesto');
+
+//TABLA GENERAL
 const tablaGe = document.getElementById('tabla_general');
 const cuerpTGe = document.getElementById('tabla_boody_ge');
 
@@ -15,11 +17,12 @@ const btnIn = document.getElementById('btn_in');
 const btnBu = document.getElementById('btn_bu');
 const btnAg = document.getElementById('btnAg');
 const btnGe = document.getElementById('btn_ge');
+const btnSa = document.getElementById('btn_sa');
 
 //Dom contenedores:
 const form = document.getElementById('formulario');
 const buscar = document.getElementById('buscar');
-
+const salir = document.getElementById('tabla_salir');
 //objetos
 
 let parking = {
@@ -29,6 +32,7 @@ let parking = {
     piso4: [],
     piso5: [],
     registro: [],
+    registroP: [],
 };
 
 //Clases padres
@@ -119,11 +123,14 @@ function comprobarVacios() {
 }
 
 function puestoVacio(arr, puesto) {
-    console.log('si llegue');
-    if (arr[puesto] == undefined) {
+    if (arr.includes(puesto)) {
         return true;
     }
     return false;
+}
+
+function agregarPuesto(puesto) {
+    parking.registroP.push(puesto);
 }
 
 function matriculaExistente(matricula) {
@@ -266,40 +273,58 @@ function generarTablage() {
 function abrirForm() {
     tablaGe.classList.add('close');
     buscar.classList.add('close');
+    salir.classList.add('close');
     form.classList.remove('close');
+}
+
+function abirSalir() {
+    tablaGe.classList.add('close');
+    buscar.classList.add('close');
+    form.classList.add('close');
+    salir.classList.remove('close');
 }
 
 function abrirBuscar() {
     tablaGe.classList.add('close');
     form.classList.add('close');
+    salir.classList.add('close');
     buscar.classList.remove('close');
 }
 
 function abrirTabla() {
     tablaGe.classList.add('close');
     buscar.classList.add('close');
+    salir.classList.add('close');
     form.classList.remove('close');
 }
 
 function abrirTablage() {
-    tablaGe.classList.remove('close');
     buscar.classList.add('close');
+    salir.classList.add('close');
     form.classList.add('close');
+    tablaGe.classList.remove('close');
 }
 
 // fuciones de botoes
 function btn_bus() {
     abrirBuscar();
 }
+
 function btn_in() {
     abrirForm();
+}
+
+function btn_sa() {
+    abirSalir();
 }
 
 function ag_vehiculo() {
     if (matriculaExistente(inMatricula.value)) {
         alert('la matricula ya existe');
         return null;
-    } else if (!puestoVacio(pisoSelect(), Number(inPuesto.value - 1))) {
+    } else if (
+        puestoVacio(parking.registroP, String(generarPiso() + inPuesto.value))
+    ) {
         alert('ese puesto ya esta ocuapdo');
         return null;
     }
@@ -313,6 +338,7 @@ function ag_vehiculo() {
                 generarPiso(),
                 pisoSelect()
             );
+            agregarPuesto(String(generarPiso() + inPuesto.value));
             break;
         case 2:
             agregarCamioneta(
@@ -322,6 +348,7 @@ function ag_vehiculo() {
                 generarPiso(),
                 pisoSelect()
             );
+            agregarPuesto(String(generarPiso() + inPuesto.value));
             break;
         case 3:
             agregarBus(
@@ -331,6 +358,7 @@ function ag_vehiculo() {
                 generarPiso(),
                 pisoSelect()
             );
+            agregarPuesto(String(generarPiso() + inPiso.value));
             break;
     }
 }
@@ -345,8 +373,6 @@ function btn_ag() {
     }
     ag_vehiculo();
     generarTablage();
-
-    alert('llegue al final');
 }
 
 //add, linstener
@@ -354,3 +380,4 @@ btnIn.addEventListener('click', btn_in);
 btnBu.addEventListener('click', abrirBuscar);
 btnAg.addEventListener('click', btn_ag);
 btnGe.addEventListener('click', abrirTablage);
+btnSa.addEventListener('click', btn_sa);

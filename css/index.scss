@@ -151,6 +151,20 @@ body {
         justify-content: space-evenly;
     }
 }
+.nombre {
+    display: block;
+    color: var(--bg-btn-menu);
+    font-size: 1.5em;
+    margin: 30px;
+}
+.parrafo {
+    text-align: center;
+    width: 70%;
+
+    img {
+        margin: 30px;
+    }
+}
 .buscar {
     display: flex;
     flex-flow: column nowrap;
@@ -168,8 +182,6 @@ body {
 
     &__contenedor {
         width: 100%;
-        height: 300px;
-        overflow: hidden;
     }
 
     &__head {
@@ -200,8 +212,5 @@ body {
 
     &__fila {
         width: 100%;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
     }
 }
