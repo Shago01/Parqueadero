@@ -302,9 +302,14 @@ function abrirTablage() {
 }
 
 function sacarVehiculo() {
-    let pos = parking.registro.findIndex(
-        (element) => element._Matricula == matriculaB.value
-    );
+    let pos;
+    for (let i = 0; i < parking.registro.length; i++) {
+        if (parking.registro[i] != undefined) {
+            if (parking.registro[i]._Matricula == matriculaB.value) {
+                pos = i;
+            }
+        }
+    }
 
     let carr = parking.registro[pos];
     parking.registro[pos] = undefined;
