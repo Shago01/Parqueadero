@@ -314,6 +314,7 @@ function sacarVehiculo() {
     let carr = parking.registro[pos];
     parking.registro[pos] = undefined;
 
+    limpiarBus();
     generaPdf(carr);
 }
 
@@ -323,6 +324,13 @@ function horasUtilizadas(salida, veh) {
         return 1;
     }
     return horasUtilizadas;
+}
+
+function limpiarBus() {
+    matriculaB.value = '';
+    tipoB.value = '';
+    puestoB.value = '';
+    modeloB.value = '';
 }
 
 function generaPdf(carr) {
